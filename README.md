@@ -1,0 +1,1 @@
+# c_resources_manager
