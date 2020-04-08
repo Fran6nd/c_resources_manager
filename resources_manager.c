@@ -1,4 +1,4 @@
-#include "resources.h"
+#include "resources_manager.h"
 
 void resources_init()
 {
