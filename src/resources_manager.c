@@ -34,6 +34,16 @@ int resources_load_image(SDL_Renderer *r, char *path, int color_key)
     }
     else
     {
+        int i;
+        for (i = 0; i < resources_manager.images_counter; i++)
+        {
+            if (resources_manager.images[i] == NULL)
+            {
+                resources_manager.images[i] = SDL_CreateTextureFromSurface(r, img);
+                SDL_FreeSurface(img);
+                return i;
+            }
+        }
         resources_manager.images = realloc(resources_manager.images, sizeof(SDL_Texture *) * resources_manager.images_counter);
     }
     resources_manager.images[resources_manager.images_counter - 1] = SDL_CreateTextureFromSurface(r, img);
